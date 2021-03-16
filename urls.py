@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from prjdjango.views import greeting, goodbye, datetime, howOldAmI,sum
+from prjdjango.views import greeting, goodbye, datetime, howOldAmI, sum, person, subjects
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +24,6 @@ urlpatterns = [
     path('datetime/', datetime),
     path('howOldAmI/<int:year>', howOldAmI),
     path('sum/<int:n1>/<int:n2>', sum),
+    path('person/<name>/<lastname>', person),
+    path('subjects/', subjects),
 ]
