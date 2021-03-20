@@ -3,10 +3,13 @@ from django.db import models
 # Create your models here.
 class Client(models.Model):
     name=models.CharField(max_length=30)
-    address = models.CharField(max_length=30)
-    email=models.EmailField()
+    address = models.CharField(max_length=30,verbose_name='Dirección')
+    email=models.EmailField(blank=True, null=True)
     phone=models.CharField(max_length=7)
-
+    
+    #def __str__(self):
+    #    return self.name
+       
 class Article(models.Model):
     name=models.CharField(max_length=30)
     section = models.CharField(max_length=20)
