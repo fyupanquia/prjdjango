@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from prjdjango.views import greeting, goodbye, datetime, howOldAmI, sum, person, subjects
+from orders.views import articles, search, contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('articles/', articles),
+    path('contact/', contact),
     path('greeting/', greeting),
     path('bye/', goodbye),
     path('datetime/', datetime),

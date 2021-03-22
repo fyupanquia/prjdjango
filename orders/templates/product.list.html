@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <dir>
+        <form action="/articles" method="GET">
+            <input type="text" name="name">
+            <input type="submit" value="Search">
+        </form>
+        {%if error_message%}
+        <b>{{error_message}}</b>
+        {% endif %}
+
+        {% if name%}
+        <span>{{articles|length}} results for : {{name}}</span>
+        {% endif %}
+
+        {%if articles%}
+        <ul>
+            {% for article in articles%}
+            <li>{{article.name}} {{article.section}} {{article.price}}</li>
+            {% endfor %}
+        </ul>
+        {%endif%}
+    </dir>
+
+</body>
+
+</html>
