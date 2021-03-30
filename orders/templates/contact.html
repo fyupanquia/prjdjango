@@ -5,16 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONACT</title>
+    <title>CONTACT</title>
 </head>
 
 <body>
     <dir>
+        <h1>CONTACT FORM</h1>
         <form action="/contact/" method="POST">
             {% csrf_token %}
-            <p>Subject :<input type="text" name="subject"></p>
-            <p>Email :<input type="text" name="email"></p>
-            <p>Message :<textarea type="text" name="message"></textarea></p>
+
+            {%if form %}
+                {%if form.errors%}
+                    <p style="color:red;">Something wrong</p>
+                {%endif%}
+                {{ form.as_p }}
+            {% else %}
+                <p>Subject :<input type="text" name="subject"></p>
+                <p>Email :<input type="text" name="email"></p>
+                <p>Message :<textarea type="text" name="message"></textarea></p>
+            {% endif %}
             <input type="submit" value="Send">
         </form>
     </dir>
